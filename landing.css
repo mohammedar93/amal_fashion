@@ -1,0 +1,349 @@
+/* --- 1. Reset & Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Implémenti Poppins mn Google Fonts */
+}
+
+body {
+    background-color: #fdfdfd;
+}
+
+/* --- 2. Header Style & Animation --- */
+header {
+    width: 100%;
+    padding: 10px 5%; /* Padding rchiq */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* Background Rose & Byed m3a l-lmi3an */
+    background: linear-gradient(to right, #ffdde1 0%, #ffffff 50%, #ffdde1 100%);
+    background-size: 200% auto;
+    animation: shineHeader 5s linear infinite;
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.15);
+}
+
+/* L-animation dyal Shine (Lmi3an) */
+@keyframes shineHeader {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* --- 3. Navbar Layout --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo + Smiya */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-logo {
+    background: #333;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.site-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #444;
+    text-transform: uppercase;
+}
+
+/* --- 4. Navigation Links (Sgharin) --- */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 18px; /* Faraq sghir binat-hom */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 10px; /* Font sghir bzaf w pro */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animation dyal l-kbouriya (Scale) */
+.nav-links li a:hover {
+    color: #d63384; /* Rose ghameq */
+    transform: scale(1.3); /* Ikber b 30% fach t-douz souris */
+}
+
+/* Link Active */
+.nav-links li a.active {
+    color: #d63384;
+    border-bottom: 1.5px solid #d63384;
+    padding-bottom: 2px;
+}
+/* --- 1. Main Section (Hero) bl- Background Image --- */
+.hero-main {
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('bg.webp') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* --- 2. Carré Central (Your Style is Your Image) --- */
+.glass-card {
+    position: relative;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(#ffdde1, #ffffff, #d63384, #ffffff, #ffdde1);
+    animation: rotateBorder 4s linear infinite;
+}
+
+.glass-card::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: rgba(255, 255, 255, 0.9); 
+    z-index: 1;
+}
+
+.main-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #000; /* Ktaba central b-l-khel */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* --- 3. Les Trois Liens (Femme, Jeunesse, Vielle) bl-Khel --- */
+.category-links {
+    display: flex;
+    gap: 25px;
+}
+
+.animated-link {
+    position: relative;
+    padding: 15px 35px;
+    text-decoration: none;
+    
+    /* Loun l-ktaba rje3 b-l-khel kima bghiti */
+    color: #000; 
+    
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #d63384;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    border: 2px solid pink;
+}
+
+.animated-link::before {
+    content: '';
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    
+    animation: rotateBorder 3s linear infinite;
+}
+
+.animated-link::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+   
+    z-index: 1;
+    transition: 0.3s;
+}
+
+/* Hover Effect: Fach t-douz souris k-at-welli l-ktaba byda w l-fond rose */
+.animated-link:hover {
+    
+}
+
+.animated-link:hover::after {
+    
+}
+
+/* Bach l-ktaba t-bqa dima l-fouq */
+.animated-link span, .animated-link {
+    z-index: 5;
+}
+
+/* Animation dyal l-doran */
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .category-links { flex-direction: column; gap: 15px; }
+    .main-title { font-size: 20px; }
+}
+/* --- Footer Styling (Shine & Style) --- */
+footer {
+    width: 100%;
+    padding: 70px 5% 40px;
+    margin-top: 60px;
+    
+    /* Animation Shine: Rose & Byed bhal l-header */
+    background: linear-gradient(to right, #ffdde1 0%, #ffffff 50%, #ffdde1 100%);
+    background-size: 200% auto;
+    animation: shineHeader 8s linear infinite; /* Animation hdiya */
+    
+    border-top: 1px solid rgba(214, 51, 132, 0.1);
+    color: #333;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Brand Section */
+.footer-brand {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-desc {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* Header dyal les colonnes */
+.footer-links h3, .footer-social h3 {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: #d63384; /* Rose mghlouq */
+}
+
+/* Liens */
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #444;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #d63384;
+    padding-left: 8px; /* Effet de mouvement */
+}
+
+/* Social Icons Style */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #ffdde1;
+    color: #000; /* Ktaba bl-khel sghira */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 50%;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icons a:hover {
+    background: #000;
+    color: #fff;
+    transform: translateY(-8px) rotate(360deg); /* Animation wa3ra */
+    border-color: #000;
+}
+
+/* Copyright */
+.copyright {
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-brand, .footer-links, .footer-social {
+        align-items: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
